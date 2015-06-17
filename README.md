@@ -9,6 +9,10 @@ debugged.
 In order to make communication with scientists easier and to thereby identify
 the issue more quickly, this MATLAB port has been created.
 
+## Supported MATLAB Version
+
+I've tested the MATLAB codes in this repository only on `MATLAB_R2015a`.
+
 ## What am I trying to do?
 
 This project is being developed as part of a research project at Duke
