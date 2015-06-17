@@ -154,6 +154,7 @@ It tries to simulate both the cell growth process and the diffusion of
 the activator/inhibitor substances.
 
 The general idea of the animation produced by the simulation is as follows:
+
 1. At a fixed moment, draw the current heights of each cell and the
 inhibitor concentration at each position across the root.
 2. Compute the `da/dt` and `dh/dt` at that moment.
