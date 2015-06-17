@@ -70,7 +70,7 @@ equations, which are borrowed from [Meinhardt
 2008](http://www.ncbi.nlm.nih.gov/pubmed/18023723).
 
 ![\frac{\partial a}{\partial t} = \rho_a \frac{a^2}{h} - \mu a + D_a
-\frac{\partial^2 a}{\partial x^2}](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20t%7D%20%3D%20%5Crho_h%20%5Cfrac%7Ba%5E2%7D%7Bh%7D%20-%20%5Cmu%20a%20&plus;%20D_a%20%5Cfrac%7B%5Cpartial%5E2%20a%7D%7B%5Cpartial%20x%5E2%7D "The activator PDE")
+\frac{\partial^2 a}{\partial x^2}](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20t%7D%20%3D%20%5Crho_a%20%5Cfrac%7Ba%5E2%7D%7Bh%7D%20-%20%5Cmu%20a%20&plus;%20D_a%20%5Cfrac%7B%5Cpartial%5E2%20a%7D%7B%5Cpartial%20x%5E2%7D "The activator PDE")
 
 ![\frac{\partial h}{\partial t} = \rho_h a^2 - \nu h + D_h 
 \frac{\partial^2 h}{\partial x^2}](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20t%7D%20%3D%20%5Crho_h%20a%5E2%20-%20%5Cnu%20h%20&plus;%20D_h%20%5Cfrac%7B%5Cpartial%5E2%20h%7D%7B%5Cpartial%20x%5E2%7D)
