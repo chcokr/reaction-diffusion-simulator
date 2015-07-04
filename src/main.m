@@ -27,14 +27,14 @@ figure;
 surf(xMesh, tMesh, actConcenSolutions, ...
   'EdgeColor', 'none'); % Turn off the meshes on the graph.
 title('a(x,t)');
-xlabel('Distance x (�m)');
+xlabel('Distance x (micro-m)');
 ylabel('Time t (sec)');
 
 figure;
 surf(xMesh, tMesh, inhConcenSolutions, ...
   'EdgeColor', 'none');
 title('h(x,t)');
-xlabel('Distance x (�m)');
+xlabel('Distance x (micro-m)');
 ylabel('Time t (sec)');
 
 % This function is meant to be passed into pdepe as a function handle
