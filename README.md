@@ -140,7 +140,14 @@ The following two sources were also consulted:
 - [Meinhardt's BASIC source code simulating similar
 PDEs](http://www.eb.tuebingen.mpg.de/research/emeriti/hans-meinhardt/biuprog.html)
 
-Orient the resulting 3D graphs so that you're looking down on them from the sky
+Once the simulation is over, you'll see three windows open up.
+The first two are 3D graphs that show the solutions to the PDEs, wholistically
+visualizing how the activator and inhibitor substances diffuse across the root
+and across time.
+The third is a 2D animation of how the concentrations diffuse across the root at
+a fixed moment.
+
+Orient the two 3D graphs so that you're looking down on them from the sky
 (from `z = ∞`).
 Do you see how the diagonal stripes form?
 
