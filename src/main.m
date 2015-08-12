@@ -8,8 +8,6 @@ timeDomainStep = 50; % seconds
 xMesh = 0:spatialDomainStep:spatialDomainSize;
 tMeshSeconds = 0:timeDomainStep:timeDomainSize;
 
-tMeshHours = linspace(0, timeDomainSize / 60 / 60, length(tMeshSeconds))
-
 % According to http://www.mathworks.com/help/matlab/ref/pdepe.html,
 % pdepe can handle three categories of PDEs: slab, cylindrical, spherical.
 % I (YJ Yang) don't know what each of these means, but I went with slab.
