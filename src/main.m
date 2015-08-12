@@ -64,7 +64,7 @@ produceAnimationOfConcensDiffusion( ...
 % mathworks.com/help/matlab/math/partial-differential-equations.html
 function [c,f,s] = pdeSystemFn(x, t, colOfVar, colOfDaDxAndDhDx)
 
-driftVelocity = 0.2;
+driftVelocity = 0.11574; % This is about 1cm growth per day.
 
 actBaseProd = 0.0033;
 actDecayCoeff = 0.00019; % the mu in the differential equations
