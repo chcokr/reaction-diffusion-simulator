@@ -2,7 +2,9 @@ function main
 
 spatialDomainSize = 10000; % micrometers
 spatialDomainStep = 100; % micrometers
+
 timeDomainSize = 100000; % seconds
+
 timeDomainStep = 50; % seconds
 
 xMesh = 0:spatialDomainStep:spatialDomainSize;
@@ -62,7 +64,7 @@ produceAnimationOfConcensDiffusion( ...
 % mathworks.com/help/matlab/math/partial-differential-equations.html
 function [c,f,s] = pdeSystemFn(x, t, colOfVar, colOfDaDxAndDhDx)
 
-driftVelocity = 0.11574; % This is about 1cm growth per day.
+tipVelocity = 0.11574;
 
 actBaseProd = 0.0033;
 actDecayCoeff = 0.00019; % the mu in the differential equations
@@ -80,7 +82,7 @@ DaDx = colOfDaDxAndDhDx(1);
 DhDx = colOfDaDxAndDhDx(2);
 
 sizeOfInitialTopmostRegionCarryingActivators = 200;
-if x > driftVelocity * t + sizeOfInitialTopmostRegionCarryingActivators
+if x > tipVelocity * t + sizeOfInitialTopmostRegionCarryingActivators
 
   % In order to understand this part of the IF statement well, we need to remind
   % ourselves of how we defined our coordinate system in the README.
@@ -101,8 +103,7 @@ else
     actSourceDensity * actConcen * actConcen / ...
       (inhConcen + actDenominatorDefault) - ...
     actDecayCoeff * actConcen + ...
-    actBaseProd - ...
-    driftVelocity * DaDx; ...
+    actBaseProd; ...
 
 end
 
@@ -111,8 +112,7 @@ end
 f_h = inhDiffuCoeff * DhDx;
 s_h = ...
   inhSourceDensity * actConcen * actConcen - ...
-    inhDecayCoeff * inhConcen - ...
-    driftVelocity * DhDx;
+    inhDecayCoeff * inhConcen;
 
 c = [1; 1];
 f = [f_a; f_h];
@@ -125,7 +125,11 @@ s = [s_a; s_h];
 % mathworks.com/help/matlab/math/partial-differential-equations.html
 function colInitValForEachVar = initConditionsFn(posFromTopInroot)
 
+% original
 sizeOfInitialTopmostRegionCarryingActivators = 200;
+% vp23 x 3
+%sizeOfInitialTopmostRegionCarryingActivators = 3*200;
+
 if posFromTopInroot < sizeOfInitialTopmostRegionCarryingActivators
 
   % In order to understand this IF statement well, we need to remind ourselves
