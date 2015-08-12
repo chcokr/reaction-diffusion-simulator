@@ -6,7 +6,9 @@ timeDomainSize = 100000; % seconds
 timeDomainStep = 50; % seconds
 
 xMesh = 0:spatialDomainStep:spatialDomainSize;
-tMesh = 0:timeDomainStep:timeDomainSize;
+tMeshSeconds = 0:timeDomainStep:timeDomainSize;
+
+tMeshHours = linspace(0, timeDomainSize / 60 / 60, length(tMeshSeconds))
 
 % According to http://www.mathworks.com/help/matlab/ref/pdepe.html,
 % pdepe can handle three categories of PDEs: slab, cylindrical, spherical.
@@ -18,26 +20,32 @@ pdeSolutions = pdepe( ...
   @initConditionsFn, ...
   @boundaryConditionsFn, ...
   xMesh, ...
-  tMesh);
+  tMeshSeconds);
 
 actConcenSolutions = pdeSolutions(:,:,1);
 inhConcenSolutions = pdeSolutions(:,:,2);
 
+% On our 3D plots, we want the unit of the y-axis to be hours, not seconds,
+% for better visualization
+tMeshHours = linspace(0, timeDomainSize / 60 / 60, length(tMeshSeconds));
+
 figure;
-surf(xMesh, tMesh, actConcenSolutions, ...
+surf(xMesh, tMeshHours, actConcenSolutions, ...
   'EdgeColor', 'none'); % Turn off the meshes on the graph.
 title('a(x,t)');
 xlabel('Distance x (micro-m)');
-ylabel('Time t (sec)');
+ylabel('Time t (hours)');
 view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
+axis tight; % Without this, there'll be some blank space near top end of y-axis
 
 figure;
-surf(xMesh, tMesh, inhConcenSolutions, ...
+surf(xMesh, tMeshHours, inhConcenSolutions, ...
   'EdgeColor', 'none');
 title('h(x,t)');
 xlabel('Distance x (micro-m)');
 ylabel('Time t (sec)');
 view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
+axis tight; % Without this, there'll be some blank space near top end of y-axis
 
 % Produce a 2D animation of how the concentrations diffuse, both activator and
 % inhibitor, across the root at a fixed moment.
