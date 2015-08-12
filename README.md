@@ -147,7 +147,7 @@ and across time.
 The third is a 2D animation of how the concentrations diffuse across the root at
 a fixed moment.
 
-Orient the two 3D graphs so that you're looking down on them from the sky
+The two 3D graphs are oriented so that you're looking down on them from the sky
 (from `z = ∞`).
 Do you see how the diagonal stripes form?
 

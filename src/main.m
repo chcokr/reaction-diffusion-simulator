@@ -29,6 +29,7 @@ surf(xMesh, tMesh, actConcenSolutions, ...
 title('a(x,t)');
 xlabel('Distance x (micro-m)');
 ylabel('Time t (sec)');
+view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
 
 figure;
 surf(xMesh, tMesh, inhConcenSolutions, ...
@@ -36,6 +37,7 @@ surf(xMesh, tMesh, inhConcenSolutions, ...
 title('h(x,t)');
 xlabel('Distance x (micro-m)');
 ylabel('Time t (sec)');
+view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
 
 % Produce a 2D animation of how the concentrations diffuse, both activator and
 % inhibitor, across the root at a fixed moment.
