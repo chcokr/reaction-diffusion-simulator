@@ -22,3 +22,4 @@ xlabel('Distance x (micro-m)');
 ylabel('Time t (hours)');
 view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
 axis tight; % Without this, there'll be some blank space near top end of y-axis
+colorbar;
