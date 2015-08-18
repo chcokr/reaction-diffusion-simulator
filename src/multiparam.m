@@ -120,8 +120,19 @@ for rowIdx = 1:size(matrixWhoseEachRowIndicatesWhetherAParamWillBeTweaked, 1)
   end
 
   computeSpatialIntervalsAtThisTMeshIndex = size(actConcenSolutions, 1);
-  [~, spatialIntervalPeakLocations] = ...
+  [allLocalMaxima, allLocalMaximaLocations] = ...
     findpeaks(actConcenSolutions(computeSpatialIntervalsAtThisTMeshIndex, :));
+  [~, essentialMaximaLocations] = findpeaks(allLocalMaxima);
+  
+  essentialMaximaCount = size(essentialMaximaLocations, 2);
+
+  spatialIntervalPeakLocations = zeros(essentialMaximaCount);
+  
+  for i = 1:essentialMaximaCount
+    spatialIntervalPeakLocations(i) = ...
+      allLocalMaximaLocations(essentialMaximaLocations(i));
+  end
+  
   spatialIntervalsMean = ...
     mean(diff(spatialIntervalPeakLocations)) * spatialDomainStep;
   spatialIntervalsStdev = ...
