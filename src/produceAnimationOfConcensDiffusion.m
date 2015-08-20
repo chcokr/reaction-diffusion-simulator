@@ -11,6 +11,8 @@ function produceAnimationOfConcensDiffusion( ...
 centerFigure(500, 700); % Open up a figure of width 500, height 700, and center
                         % it at the middle of the screen.
 
+fig = gcf;
+
 rootWidth = 10; % unimportant width of the root, for visual purposes
 gapBetweenRoots = 5; % similarly unimportant, for visual purposes
 
@@ -22,6 +24,10 @@ minInhConcen = min(inhConcenSolutionsFromPdepe(:));
 % The inside of the following `while` loop produces each frame of the animation.
 curTime = 0;
 while curTime <= timeDomainSize
+  % If the user is watching any other figure window, make sure this new frame
+  % gets drawn to this desired figure.
+  figure(fig);
+  
   % Erase everything that is in the previous frame, so that a new frame can be
   % painted.
   clf;
