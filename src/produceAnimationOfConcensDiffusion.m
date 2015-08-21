@@ -23,7 +23,15 @@ minInhConcen = min(inhConcenSolutionsFromPdepe(:));
 
 % The inside of the following `while` loop produces each frame of the animation.
 curTime = 0;
+frameIdx = 1;
+prevMsgLen = 0; % This helps delete the previous line of console output.
 while curTime <= timeDomainSize
+  % Delete the previous line of console output, and write a new one.
+  fprintf(repmat('\b', 1, prevMsgLen));
+  prevMsgLen = fprintf('Movie: creating frame %d of %d \n', ...
+    frameIdx, ...
+    timeDomainSize / timeDomainStep);
+  
   % If the user is watching any other figure window, make sure this new frame
   % gets drawn to this desired figure.
   figure(fig);
@@ -64,11 +72,20 @@ while curTime <= timeDomainSize
     rootWidth, ...
     rootWidth + gapBetweenRoots);
 
-  % Delay between animation frames.
-  % Without this small delay, the loop runs too fast without leaving room
-  % for animation to appear.
-  pause(0.001);
+  % Queue this frame so it can be played later
+  movieFrames(frameIdx) = getframe(fig);
+  frameIdx = frameIdx + 1;
 
   % Move on to the next frame.
   curTime = curTime + timeDomainStep;
 end
+
+movieSavePath = ...
+  fullfile( ...
+    fileparts(fileparts(mfilename('fullpath'))), ...
+    strcat('movie-', datestr(datetime('now'), 'mm-dd-HH:MM:SS'), '.avi') ...
+  );
+fprintf('Saving the movie at %s \n', movieSavePath);
+fprintf('Done! \n');
+movie2avi(movieFrames, movieSavePath, ...
+  'fps', 2);
