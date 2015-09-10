@@ -8,12 +8,12 @@ timeDomainStep = 50; % seconds
 actBaseProd = 0.0033;
 actDecayCoeff = 0.00019; % the mu in the differential equations
 actDenominatorDefault = 1;
-actDiffuCoeff = 0.001; % the D_a
-actSourceDensity = 0.00018; % the rho_a
+actDiffuCoeff = 1; % the D_a
+actSourceDensity = 0.02; % the rho_a
 tipVelocity = 0.11574; % This is about 1cm growth per day.
-inhDecayCoeff = 0.00025; % the nu
-inhDiffuCoeff = 20; % the D_h
-inhSourceDensity = 0.00001; % the rho_h
+inhDecayCoeff = 0.0025; % the nu
+inhDiffuCoeff = 250; % the D_h
+inhSourceDensity = 0.0001; % the rho_h
 
 pdeSolutions = getPdeSolutions( ...
   actBaseProd, ...
