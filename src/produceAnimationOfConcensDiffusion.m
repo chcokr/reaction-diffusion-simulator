@@ -46,6 +46,8 @@ while curTime <= timeDomainSize
   axes.Color = 'none'; % We don't want any color on the back pane.
   axes.XColor = 'none'; % We don't want the x-axis to appear.
   axes.YLabel.String = 'Distance from top of root (micro-m)';
+  axes.YDir = 'reverse'; % Since the label is 'distance from *top* of root,
+                         % we want 0 to be at the top of the Y-axis.
   title([
     'Activator (left) and inhibitor (right) concentrations at', ...
     sprintf(' %.1f hrs\n', curTime / 60 / 60), ...
