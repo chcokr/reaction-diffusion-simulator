@@ -45,7 +45,7 @@ while curTime <= timeDomainSize
   axes = gca; % `gca` returns the current axes handle.
   axes.Color = 'none'; % We don't want any color on the back pane.
   axes.XColor = 'none'; % We don't want the x-axis to appear.
-  axes.YLabel.String = 'Offset from the bottom of the initial bump (micro-m)';
+  axes.YLabel.String = 'Offset from the top of the root (micro-m)';
   title([
     'Activator (left) and inhibitor (right) concentrations at', ...
     sprintf(' %.1f hrs\n', curTime / 60 / 60), ...
