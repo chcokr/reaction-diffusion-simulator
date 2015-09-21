@@ -18,8 +18,8 @@ tMeshHours = linspace(0, timeDomainSize / 60 / 60, length(tMeshSeconds));
 surf(xMesh, tMeshHours, concenSolutions, ...
   'EdgeColor', 'none'); % Turn off the meshes on the graph.
 title(titleStr);
-xlabel('Distance x (micro-m)');
-ylabel('Time t (hours)');
+xlabel('Distance from top of root (micro-m)');
+ylabel('Time (hours)');
 view([0 90]); % Look at the 3D plot from atop (i.e. z=infty)
 axis tight; % Without this, there'll be some blank space near top end of y-axis
 colorbar;
