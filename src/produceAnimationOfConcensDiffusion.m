@@ -32,11 +32,11 @@ while curTime <= timeDomainSize
   prevMsgLen = fprintf('Movie: creating frame %d of %d \n', ...
     frameIdx, ...
     timeDomainSize / timeDomainStep);
-  
+
   % If the user is watching any other figure window, make sure this new frame
   % gets drawn to this desired figure.
   figure(fig);
-  
+
   % Erase everything that is in the previous frame, so that a new frame can be
   % painted.
   clf;
