@@ -118,15 +118,8 @@ for rowIdx = 1:size(matrixWhoseEachRowIndicatesWhetherAParamWillBeTweaked, 1)
   inhMax = max(inhConcenSolutions(:));
   inhMin = min(inhConcenSolutions(:));
 
-  computeSpatialIntervalsAtThisTMeshIndex = size(actConcenSolutions, 1);
-  actConcensAtTheTMeshIndex = ...
-    actConcenSolutions(computeSpatialIntervalsAtThisTMeshIndex, :);
   [~, spatialIntervalPeakLocations] = ...
-    findpeaks( ...
-      actConcensAtTheTMeshIndex, ...
-      'MinPeakProminence', (actMax - actMin) * 0.1, ... % 10% of possible height
-      'MinPeakHeight', actMax * 0.5 + actMin * 0.5 ... % top 50%
-    );
+    findConcenPeaks(actConcensSolutions, actMax, actMin);
 
   spatialIntervalsMean = ...
     mean(diff(spatialIntervalPeakLocations)) * spatialDomainStep;
