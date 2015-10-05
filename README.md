@@ -65,7 +65,7 @@ To explain all these phenomena mathematically, we have come up with the
 following system of partial differential equations, which is a variation of one
 found in [Meinhardt 2008](http://www.ncbi.nlm.nih.gov/pubmed/18023723).
 
-![\frac{\partial a}{\partial t}=\rho_a\frac{a^2}{h+h_0}-\mu a+D_a\frac{\partial^2 a}{\partial x^2}-s\frac{\partial a}{\partial x}+c](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20t%7D%3D%5Crho_a%5Cfrac%7Ba%5E2%7D%7Bh&plus;h_0%7D-%5Cmu%20a&plus;D_a%5Cfrac%7B%5Cpartial%5E2%20a%7D%7B%5Cpartial%20x%5E2%7D-s%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20x%7D&plus;c "The activator PDE")
+![\frac{\partial a}{\partial t}=\rho_a\frac{a^2}{h+h_0}-\mu a+D_a\frac{\partial^2 a}{\partial x^2}-s\frac{\partial a}{\partial x}+c](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20t%7D%3D%5Crho_a%5Cfrac%7Ba%5E2%7D%7Bh&plus;h_0%7D-%5Cmu%20a&plus;D_a%5Cfrac%7B%5Cpartial%5E2%20a%7D%7B%5Cpartial%20x%5E2%7D-s%5Cfrac%7B%5Cpartial%20a%7D%7B%5Cpartial%20x%7D "The activator PDE")
 
 ![\frac{\partial h}{\partial t}=\rho_h a^2-\nu h+D_h\frac{\partial^2 h}{\partial x^2}-s\frac{\partial h}{\partial x}](http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20t%7D%3D%5Crho_h%20a%5E2-%5Cnu%20h&plus;D_h%5Cfrac%7B%5Cpartial%5E2%20h%7D%7B%5Cpartial%20x%5E2%7D-s%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20x%7D "The inhibitor PDE")
 
