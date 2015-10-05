@@ -1,7 +1,5 @@
 function plots
 
-spatialDomainSize = 10000; % micrometers
-spatialDomainStep = 100; % micrometers
 timeDomainSize = 100000; % seconds
 timeDomainStep = 50; % seconds
 
@@ -15,6 +13,9 @@ tipVelocity = 0.11574; % This is about 1cm growth per day.
 inhDecayCoeff = 0.0025; % the nu
 inhDiffuCoeff = 250; % the D_h
 inhSourceDensity = 0.0001; % the rho_h
+
+[spatialDomainSize, spatialDomainStep] = ... % The unit is micrometers.
+  getGoodSpatialDomainSizeAndStep(timeDomainSize, timeDomainStep, tipVelocity);
 
 pdeSolutions = getPdeSolutions( ...
   actBaseProd, ...
