@@ -4,7 +4,9 @@ function fig = getActOrInhConcens3DFigure( ...
   spatialDomainSize, ...
   spatialDomainStep, ...
   timeDomainSize, ...
-  timeDomainStep)
+  timeDomainStep, ...
+  tipVelocity, ...
+  fixPerspectiveAt)
 
 fig = figure;
 
@@ -15,8 +17,31 @@ xMesh = 0:spatialDomainStep:spatialDomainSize;
 tMeshSeconds = 0:timeDomainStep:timeDomainSize;
 tMeshHours = linspace(0, timeDomainSize / 60 / 60, length(tMeshSeconds));
 
-surf(xMesh, tMeshHours, concenSolutions, ...
-  'EdgeColor', 'none'); % Turn off the meshes on the graph.
+if strcmp(fixPerspectiveAt, 'tip')
+  numOfElemsInTMesh = size(concenSolutions, 1);
+  numOfElemsInXMesh = size(concenSolutions, 2);
+  transformedConcenSols = zeros(numOfElemsInTMesh, numOfElemsInXMesh);
+  for tIdx = 1:numOfElemsInTMesh
+    for xIdx = 1:numOfElemsInXMesh
+      xIdxBeforeTransform = int32( ...
+        (tipVelocity * tIdx * timeDomainStep - xIdx * spatialDomainStep) / ...
+          spatialDomainStep ...
+      );
+      if 0 < xIdxBeforeTransform && xIdxBeforeTransform <= numOfElemsInXMesh
+        transformedConcenSols(tIdx, xIdx) = ...
+          concenSolutions(tIdx, xIdxBeforeTransform);
+      end
+    end
+  end
+end
+
+if strcmp(fixPerspectiveAt, 'tip')
+  surf(xMesh, tMeshHours, transformedConcenSols, ...
+    'EdgeColor', 'none'); % Turn off the meshes on the graph.
+else
+  surf(xMesh, tMeshHours, concenSolutions, ...
+    'EdgeColor', 'none'); % Turn off the meshes on the graph.
+end  
 title(titleStr);
 xlabel('Distance from top of root (micro-m)');
 ylabel('Time (hours)');
