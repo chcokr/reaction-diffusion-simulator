@@ -69,37 +69,23 @@ function fn = getPdeSystemFn( ...
   DhDx = colOfDaDxAndDhDx(2);
 
   sizeOfInitialTopmostRegionCarryingActivators = 200;
-  if x > tipVelocity * t + sizeOfInitialTopmostRegionCarryingActivators
 
-    % In order to understand this part of the IF statement well, we need to
-    % remind ourselves of how we defined our coordinate system in the README.
-    % Recall that x = 0 points to the bottom of the initial topmost region
-    % carrying activators.
-    % That is, at any moment, the top of the region always aligns with the top
-    % of the root.
-    % So it makes no sense to have new activators generated beyond the top of
-    % this region, and thus we're trying to enforce da/dt = 0 there.
-
-    f_a = 0;
-    s_a = 0;
-
-  else
 
     f_a = actDiffuCoeff * DaDx;
     s_a = ...
       actSourceDensity * actConcen * actConcen / ...
         (inhConcen + actDenominatorDefault) - ...
-      actDecayCoeff * actConcen + ...
-      actBaseProd; ...
+      actDecayCoeff * actConcen - ...
+      tipVelocity * DaDx;
 
-  end
 
   % For inhibitor concentrations, an IF statement is unnecessary.
   % We want them to rely on activator concentrations.
   f_h = inhDiffuCoeff * DhDx;
   s_h = ...
     inhSourceDensity * actConcen * actConcen - ...
-      inhDecayCoeff * inhConcen ;
+      inhDecayCoeff * inhConcen - ...
+      tipVelocity * DhDx;
 
   c = [1; 1];
   f = [f_a; f_h];
