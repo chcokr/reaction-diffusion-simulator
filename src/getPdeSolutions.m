@@ -34,7 +34,7 @@ pdeTypeIsSlab = 0;
 sol = pdepe( ...
   pdeTypeIsSlab, ...
   pdeSystemFn, ...
-  @initConditionsFn, ...
+  getInitConditionsFnAfterCoordTrans(initLength), ...
   @boundaryConditionsFn, ...
   xMesh, ...
   tMeshSeconds);
@@ -120,6 +120,18 @@ else
   colInitValForEachVar = [0; 0];
 
 end
+
+end
+
+function fn = getInitConditionsFnAfterCoordTrans(initLength)
+
+  function colInitValForEachVar = fnToReturn(posFromTopInRoot)
+
+  colInitValForEachVar = initConditionsFn(initLength * posFromTopInRoot);
+
+  end
+
+fn = @fnToReturn;
 
 end
 
