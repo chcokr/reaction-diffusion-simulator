@@ -20,7 +20,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
     a_tilde_first_deriv = col_of_tilde_first_deriv(1);
     h_tilde_first_deriv = col_of_tilde_first_deriv(2);
-    
+
     root_len = growth(t);
 
     f_a = act_eq_diffu() * a_tilde_first_deriv / (root_len ^ 2);
@@ -117,7 +117,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
         x = x_idx * x_mesh_size_per_mesh;
         y = x / growth(t);
         y_idx = int32(y / y_size_per_mesh);
-        if y_idx <= size(tilde_sol, 2)
+        if 1 <= y_idx && y_idx <= size(tilde_sol, 2)
           sol(t_idx, x_idx) = tilde_sol(t_idx, y_idx);
         end
       end
