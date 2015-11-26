@@ -1,11 +1,11 @@
-function [a_sol, h_sol, t_mesh, x_mesh] = solve()
+function [a_sol, h_sol, t_mesh, x_mesh] = solve( ...
+  t_size_per_mesh, ...
+  y_size_per_mesh)
 
   addpath('./settings');
 
-  t_size_per_mesh = 5;
   t_mesh = 0 : t_size_per_mesh : time_max();
 
-  y_size_per_mesh = 0.001;
   y_mesh = 0 : y_size_per_mesh : 1;
 
   growth_vel = growth_velocity();

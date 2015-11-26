@@ -1,14 +1,10 @@
-function plot3d()
-
-  addpath('./lib');
-
-  [a_sol, h_sol, t_mesh_secs, x_mesh] = solve();
+function plot3d(sol, t_mesh_secs, x_mesh)
 
   figure;
   t_mesh_hours = t_mesh_secs / 60 / 60; % y-axis unit is hours, not seconds
-  surf(x_mesh, t_mesh_hours, a_sol, ...
+  surf(x_mesh, t_mesh_hours, sol, ...
     'EdgeColor', 'none'); % Turn off the meshes on the graph.
-  title('TODO');
+  title('Title: TODO');
   xlabel('Distance from the open end (micro-m)');
   ylabel('Time (hours)');
   zlabel('Concentration (whatever unit)');
