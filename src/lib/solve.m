@@ -8,8 +8,8 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
   y_size_per_mesh = 0.001;
   y_mesh = 0 : y_size_per_mesh : 1;
 
-  growth_differentiated_fn = matlabFunction(diff(sym(@(x) growth(x))));
-  growth_velocity = growth_differentiated_fn();
+  growth_vel = growth_velocity();
+  init_len = init_length();
 
   function [c, f, s] = pdepe_eq_fn(y, t, col_of_tilde, col_of_tilde_first_deriv)
 
@@ -21,17 +21,17 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
     a_tilde_first_deriv = col_of_tilde_first_deriv(1);
     h_tilde_first_deriv = col_of_tilde_first_deriv(2);
 
-    root_len = growth(t);
+    root_len = init_len + growth_vel * t;
 
     f_a = act_eq_diffu() * a_tilde_first_deriv / (root_len ^ 2);
     f_h = inh_eq_diffu() * h_tilde_first_deriv / (root_len ^ 2);
 
     s_a = ...
       act_eq_rest(a_tilde, h_tilde) ...
-      + growth_velocity * y * a_tilde_first_deriv / root_len;
+      + growth_vel * y * a_tilde_first_deriv / root_len;
     s_h = ...
       inh_eq_rest(a_tilde, h_tilde) ...
-      + growth_velocity * y * h_tilde_first_deriv / root_len;
+      + growth_vel * y * h_tilde_first_deriv / root_len;
 
     c = [1; 1];
     f = [f_a; f_h];
@@ -39,13 +39,11 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
   end
 
-  l_0 = growth(0);
-
   function rtn = pdepe_init_fn(y)
 
     % Popov initial conditions
 
-    rtn = [act_init(y * l_0); inh_init(y * l_0)];
+    rtn = [act_init(y * init_len); inh_init(y * init_len)];
 
   end
 
@@ -103,7 +101,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
   t_mesh_count = size(t_mesh, 2);
 
   x_mesh_count = 1000;
-  growth_max = growth(time_max());
+  growth_max = init_len + growth_vel * time_max();
   x_mesh_size_per_mesh = growth_max / x_mesh_count;
   x_mesh = linspace(0, growth_max, x_mesh_count);
 
@@ -115,7 +113,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
       t = t_idx * t_size_per_mesh;
       for x_idx = 1:(x_mesh_count - 1)
         x = x_idx * x_mesh_size_per_mesh;
-        y = x / growth(t);
+        y = x / (init_len + growth_vel * t);
         y_idx = int32(y / y_size_per_mesh);
         if 1 <= y_idx && y_idx <= size(tilde_sol, 2)
           sol(t_idx, x_idx) = tilde_sol(t_idx, y_idx);
