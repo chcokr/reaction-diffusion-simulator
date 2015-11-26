@@ -125,8 +125,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
   end
 
-  a_sol = a_tilde_sol; % return_from_popov(a_tilde_sol);
-  h_sol = h_tilde_sol; % return_from_popov(h_tilde_sol);
-  x_mesh = y_mesh;
+  a_sol = return_from_popov(a_tilde_sol);
+  h_sol = return_from_popov(h_tilde_sol);
 
 end
