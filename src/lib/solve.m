@@ -1,15 +1,6 @@
-function [a_sol, h_sol, t_mesh, x_mesh] = solve(settings)
+function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
-  act_bound_open_end = @settings.act_bound_open_end;
-  act_eq_diffu = @settings.act_eq_diffu;
-  act_eq_rest = @settings.act_eq_rest;
-  act_init = @settings.act_init;
-  growth = @settings.growth;
-  inh_bound_open_end = @settings.inh_bound_open_end;
-  inh_eq_diffu = @settings.inh_eq_diffu;
-  inh_eq_rest = @settings.inh_eq_rest;
-  inh_init = @settings.inh_init;
-  time_max = @settings.time_max;
+  addpath('./settings');
 
   t_size_per_mesh = 5;
   t_mesh = 0 : t_size_per_mesh : time_max();
