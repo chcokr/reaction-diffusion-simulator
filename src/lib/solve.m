@@ -19,16 +19,18 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
     a_tilde_first_deriv = col_of_tilde_first_deriv(1);
     h_tilde_first_deriv = col_of_tilde_first_deriv(2);
+    
+    root_len = growth(t);
 
-    f_a = act_eq_diffu() * a_tilde_first_deriv / (growth(t) ^ 2);
-    f_h = inh_eq_diffu() * h_tilde_first_deriv / (growth(t) ^ 2);
+    f_a = act_eq_diffu() * a_tilde_first_deriv / (root_len ^ 2);
+    f_h = inh_eq_diffu() * h_tilde_first_deriv / (root_len ^ 2);
 
     s_a = ...
       act_eq_rest(a_tilde, h_tilde) ...
-      + growth_differentiated_fn() * y * a_tilde_first_deriv / growth(t);
+      + growth_differentiated_fn() * y * a_tilde_first_deriv / root_len;
     s_h = ...
       inh_eq_rest(a_tilde, h_tilde) ...
-      + growth_differentiated_fn() * y * h_tilde_first_deriv / growth(t);
+      + growth_differentiated_fn() * y * h_tilde_first_deriv / root_len;
 
     c = [1; 1];
     f = [f_a; f_h];
@@ -36,11 +38,13 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
   end
 
+  l_0 = growth(0);
+
   function rtn = pdepe_init_fn(y)
 
     % Popov initial conditions
 
-    rtn = [act_init(y * growth(0)); inh_init(y * growth(0))];
+    rtn = [act_init(y * l_0); inh_init(y * l_0)];
 
   end
 
