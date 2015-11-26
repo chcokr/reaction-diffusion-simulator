@@ -2,6 +2,7 @@
 
 function rtn = time_max()
 
-  rtn = 10000;
+  % Simulate over 24 hours.
+  rtn = 60 * 60 * 24;
 
 end
