@@ -22,7 +22,6 @@ function animate()
 
   % The inside of the following `while` loop produces each frame of the
   % animation.
-  frame_idx = 1;
   prev_msg_len = 0; % This helps delete the previous line of console output.
   for t_index = 1 : size(t_mesh_secs, 2)
     cur_time = t_mesh_secs(t_index);
@@ -30,7 +29,7 @@ function animate()
     % Delete the previous line of console output, and write a new one.
     fprintf(repmat('\b', 1, prev_msg_len));
     prev_msg_len = fprintf('Movie: creating frame %d of %d \n', ...
-      frame_idx, ...
+      t_index, ...
       size(t_mesh_secs, 2));
 
     % If the user is watching any other figure window, make sure this new frame
@@ -77,8 +76,7 @@ function animate()
       root_width + gap_between_roots);
 
     % Queue this frame so it can be played later.
-    movie_frames(frame_idx) = getframe(fig);
-    frame_idx = frame_idx + 1;
+    movie_frames(t_index) = getframe(fig);
 
   end
 
@@ -110,7 +108,7 @@ function draw_concens_at_fixed_time( ...
   root_lower_left_offset_from_lower_left_of_figure)
 
   for pos_idx_from_top = 1 : how_many_spatial_steps_are_there_across_the_root
-    
+
     concen = concens_at_each_step_from_top_of_root_to_bottom(pos_idx_from_top);
 
     if isnan(concen)
@@ -130,9 +128,9 @@ function draw_concens_at_fixed_time( ...
         root_width how_high_is_each_step], ...
       'EdgeColor', fill_color, ...
       'FaceColor', fill_color);
-    
+
   end
-  
+
 end
 
 % Computes the color that is linearly `how_far_from_blue` away from the color
