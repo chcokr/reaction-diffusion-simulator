@@ -8,7 +8,7 @@ function plot3d()
   t_mesh_hours = t_mesh_secs / 60 / 60; % y-axis unit is hours, not seconds
   surf(x_mesh, t_mesh_hours, a_sol, ...
     'EdgeColor', 'none'); % Turn off the meshes on the graph.
-  title('Yolo!');
+  title('TODO');
   xlabel('Distance from the open end (micro-m)');
   ylabel('Time (hours)');
   zlabel('Concentration (whatever unit)');
