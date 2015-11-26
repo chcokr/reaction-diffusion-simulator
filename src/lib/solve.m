@@ -9,6 +9,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
   y_mesh = 0 : y_size_per_mesh : 1;
 
   growth_differentiated_fn = matlabFunction(diff(sym(@(x) growth(x))));
+  growth_velocity = growth_differentiated_fn();
 
   function [c, f, s] = pdepe_eq_fn(y, t, col_of_tilde, col_of_tilde_first_deriv)
 
@@ -27,10 +28,10 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
     s_a = ...
       act_eq_rest(a_tilde, h_tilde) ...
-      + growth_differentiated_fn() * y * a_tilde_first_deriv / root_len;
+      + growth_velocity * y * a_tilde_first_deriv / root_len;
     s_h = ...
       inh_eq_rest(a_tilde, h_tilde) ...
-      + growth_differentiated_fn() * y * h_tilde_first_deriv / root_len;
+      + growth_velocity * y * h_tilde_first_deriv / root_len;
 
     c = [1; 1];
     f = [f_a; f_h];
@@ -124,7 +125,8 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve()
 
   end
 
-  a_sol = return_from_popov(a_tilde_sol);
-  h_sol = return_from_popov(h_tilde_sol);
+  a_sol = a_tilde_sol; % return_from_popov(a_tilde_sol);
+  h_sol = h_tilde_sol; % return_from_popov(h_tilde_sol);
+  x_mesh = y_mesh;
 
 end
