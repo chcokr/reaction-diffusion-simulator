@@ -57,31 +57,9 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cacheless( ...
     pr = [0; 0];
     qr = [1; 1];
 
-    % At the open end, do what the user wants.
-    a_tilde = col_of_tilde_left(1);
-    h_tilde = col_of_tilde_left(2);
-    act_bound = act_bound_open_end();
-    inh_bound = inh_bound_open_end();
-    act_bound_type = act_bound(1);
-    inh_bound_type = inh_bound(1);
-    act_bound_value = act_bound(2);
-    inh_bound_value = inh_bound(2);
-    if strcmp(act_bound_type, 'Dirichlet')
-      pl_a = a_tilde - act_bound_value;
-      ql_a = 0;
-    else
-      pl_a = 0;
-      ql_a = 1;
-    end
-    if strcmp(inh_bound_type, 'Dirichlet')
-      pl_h = h_tilde - inh_bound_value;
-      ql_h = 0;
-    else
-      pl_h = 0;
-      ql_h = 1;
-    end
-    pl = [pl_a; pl_h];
-    ql = [ql_a; ql_h];
+    % At the open end, enforce "No flux" (da/dx = dh/dx = 0).
+    pl = [0; 0];
+    ql = [1; 1];
 
   end
 
