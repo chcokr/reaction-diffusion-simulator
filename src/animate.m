@@ -5,7 +5,8 @@ function animate()
 
   t_size_per_mesh = 5;
   y_size_per_mesh = 0.001;
-  [a_sol, h_sol, t_mesh_secs, x_mesh] = solve(t_size_per_mesh, y_size_per_mesh);
+  [a_sol, h_sol, t_mesh_secs, x_mesh] = ...
+    solve_cache(t_size_per_mesh, y_size_per_mesh);
 
   center_figure(500, 700); % Open up a figure of width 500, height 700, and
                            % center it at the middle of the screen.
