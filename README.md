@@ -9,8 +9,8 @@ solve the following system of PDEs over the time domain
 
 ### PDEs
 
-- ![a_t = A(a, h) + D_a a_{xx}](http://latex.codecogs.com/gif.latex?a_t%20%3D%20A%28a%2C%20h%29%20&plus;%20D_a%20a_%7Bxx%7D)
-- ![h_t = H(a, h) + D_h h_{xx}](http://latex.codecogs.com/gif.latex?h_t%20%3D%20H%28a%2C%20h%29%20&plus;%20D_h%20h_%7Bxx%7D)
+- ![a_t = A(a, h) + D_a a_{xx}](http://latex.codecogs.com/svg.latex?a_t%20%3D%20A%28a%2C%20h%29%20&plus;%20D_a%20a_%7Bxx%7D)
+- ![h_t = H(a, h) + D_h h_{xx}](http://latex.codecogs.com/svg.latex?h_t%20%3D%20H%28a%2C%20h%29%20&plus;%20D_h%20h_%7Bxx%7D)
 
 ### Initial conditions
 
