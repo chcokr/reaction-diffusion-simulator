@@ -1,5 +1,3 @@
-# root-growth-matlab
-
 This project belongs to Duke University's [Benfey
 Laboratory](http://sites.duke.edu/benfey/).
 
