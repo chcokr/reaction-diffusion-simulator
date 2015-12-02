@@ -49,12 +49,19 @@ function animate()
     axes.YLabel.String = 'Distance from the open end (micro-m)';
     axes.YDir = 'reverse'; % Since the label is 'distance from the *open end*,
                            % we want 0 to be at the top of the Y-axis.
-    title([
-      'Activator (left) and inhibitor (right) concentrations at', ...
-      sprintf(' %.1f hrs\n', cur_time / 60 / 60), ...
-      'Params: TODO'
-    ]);
-
+    [act_eq, inh_eq, growth_eq] = get_eq_latex();
+    fig_title = title({
+      [
+        'Activator (left) and inhibitor (right) concentrations at', ...
+        sprintf(' %.1f hrs\n', cur_time / 60 / 60)
+      ]
+      [
+        'under the following equations: ', ...
+        growth_eq
+      ]
+      strjoin({act_eq; inh_eq},  '\\ \\ \\ \\ \\ \\ ')
+    });
+    set(fig_title, 'Interpreter', 'Latex');
     a_sol_at_cur_time = a_sol(t_index, :);
     x_step = x_mesh(2) - x_mesh(1);
     draw_concens_at_fixed_time( ...

@@ -1,10 +1,19 @@
-function plot3d(sol, t_mesh_secs, x_mesh)
+function plot3d(sol, t_mesh_secs, x_mesh, title_text)
+
+  [act_eq, inh_eq, growth_eq] = get_eq_latex();
 
   figure;
   t_mesh_hours = t_mesh_secs / 60 / 60; % y-axis unit is hours, not seconds
   surf(x_mesh, t_mesh_hours, sol, ...
     'EdgeColor', 'none'); % Turn off the meshes on the graph.
-  title('Title: TODO');
+  fig_title = title({
+    strjoin({
+      title_text;
+      growth_eq
+    }, '\\ ')
+    strjoin({act_eq; inh_eq}, '\\ \\ \\ \\ \\ \\ ')
+  });
+  set(fig_title, 'Interpreter', 'Latex');
   xlabel('Distance from the open end (micro-m)');
   ylabel('Time (hours)');
   zlabel('Concentration (whatever unit)');
