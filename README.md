@@ -1,6 +1,15 @@
 # root-growth-matlab
 
-This project contains tools that help you simulate the following PDE problem.
+This project belongs to Duke University's [Benfey
+Laboratory](http://sites.duke.edu/benfey/).
+
+This project contains tools that help you simulate a [reaction-diffusion
+system](https://en.wikipedia.org/wiki/Reaction–diffusion_system) over a growing
+spatial domain.
+
+**Note:** I've tested this project only on MATLAB R2015b on OS X Yosemite.
+
+## Mathematical formulation of the problem
 
 Given a spatial domain growth function
 ![l(t) = l_0 + vt](http://latex.codecogs.com/svg.latex?l%28t%29%20%3D%20l_0%20&plus;%20vt),
@@ -28,14 +37,3 @@ at ![x = 0](http://latex.codecogs.com/svg.latex?x%20%3D%200)
 - ![a_x = h_x = 0](http://latex.codecogs.com/svg.latex?a_x%20%3D%20h_x%20%3D%200)
 at ![x = l(t)](http://latex.codecogs.com/svg.latex?x%20%3D%20l%28t%29)
 
-This style of PDEs is well-known as [reaction-diffusion
-systems](https://en.wikipedia.org/wiki/Reaction–diffusion_system).
-
-## Credits
-
-This project belongs to Duke University's [Benfey
-Laboratory](http://sites.duke.edu/benfey/).
-
-## Test status
-
-I've tested this project only on MATLAB R2015b on OS X Yosemite.
