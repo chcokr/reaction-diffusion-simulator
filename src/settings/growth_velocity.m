@@ -1,4 +1,4 @@
-% Inside this function, you can specify how fast the root grows.
+% Inside this function, you can specify how fast the spatial domain grows.
 %
 % The return value must be a constant number.
 %

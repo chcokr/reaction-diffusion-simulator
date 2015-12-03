@@ -1,4 +1,5 @@
-% Inside this function, you can specify how long the root initially is.
+% Inside this function, you can specify how long the spatial domain initially
+% is.
 %
 % The return value must be a constant number.
 %
