@@ -171,4 +171,14 @@ Here is the mapping:
 File name | Corresponding math
 ---- | ----
 act_eq_diffu.m | ![D_a](http://latex.codecogs.com/svg.latex?D_a)
+act_eq_rest.m | ![A(a,h)](http://latex.codecogs.com/svg.latex?A%28a%2Ch%29)
+act_init.m | ![a_0(x)](http://latex.codecogs.com/svg.latex?a_0%28x%29)
+growth_velocity.m | ![v_0](http://latex.codecogs.com/svg.latex?v_0)
+inh_eq_diffu.m | ![D_h](http://latex.codecogs.com/svg.latex?D_h)
+inh_eq_rest.m | ![H(a,h)](http://latex.codecogs.com/svg.latex?H%28a%2Ch%29)
+inh_init.m | ![h_0(x)](http://latex.codecogs.com/svg.latex?h_0%28x%29)
+init_length.m | ![l_0](http://latex.codecogs.com/svg.latex?l_0)
+time_max.m | ![T](http://latex.codecogs.com/svg.latex?T)
 
+So whatever you want to customize in the mathematical formulation, look up the
+corresponding file, go there and read the well-documented comments in the file.
