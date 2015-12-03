@@ -60,7 +60,7 @@ For more information, please see [the dedicated documentation](./math.md).
 
 ## How to use this software
 
-### [Step 0] Setup
+### [step 0] Setup
 
 **Important note:** We've tested this project only on MATLAB R2015b on OS X
 Yosemite.
@@ -78,4 +78,47 @@ Click on this icon:
 Navigate to the cloned/unzipped folder you downloaded.
 There should be a directory called `src`.
 Go inside `src`.
-There, click `Open` in the bottom right corner of the window.
+Once you're there, click `Open` in the bottom right corner of the window.
+
+You're ready to start generating some figures!
+
+### [step 1] `preview`
+
+In the MATLAB Command Window, type `preview`.
+Wait 5-10 seconds.
+You'll get two nice 3D figures.
+These are rough sketches of the solutions of
+![a(t,x)](http://latex.codecogs.com/svg.latex?a%28t%2Cx%29)
+and
+![h(t,x)](http://latex.codecogs.com/svg.latex?h%28t%2Cx%29)
+given the configuration in the `src/settings` directory (we'll go over how to
+customize these settings later).
+
+What do we mean by "rough sketches"?
+The `preview` command's goal is to ***quickly*** return a low-resolution
+solution using big mesh steps (as you can see in the resulting 3D figures).
+So don't be surprised if you notice some nonsense - for example, negative
+concentration values.
+Such erroneous outcomes are because of the big mesh steps.
+Keep in mind that we're sacrificing precision for speed.
+So with the `preview` command, you can quickly prototype how your new PDEs might
+turn out.
+
+If the results of `preview` seem interesting and you want to more thoroughly
+simulate your current configuration, you should move on to the next command:
+`refine`.
+
+### [step 2] `refine`
+
+In the MATLAB Command Window, type `refine`.
+Wait ~1 min.
+Yes, `refine` takes longer than `preview` - this time, we're sacrificing speed
+for precision.
+So always try to strike a mental balance between how often you use `preview` and
+how often you use `refine`.
+
+### [step 3] `animate`
+
+### [extra] Multi-parameter trials
+
+TODO
