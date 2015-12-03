@@ -21,7 +21,7 @@ solve the following system of PDEs over the time domain
 
 ### Initial conditions
 
-For all ![0 \leq x \leq l(0)](http://latex.codecogs.com/svg.latex?0%20%5Cleq%20x%20%5Cleq%20l%280%29),
+At any position ![x](http://latex.codecogs.com/svg.latex?x) such that ![0 \leq x \leq l(0)](http://latex.codecogs.com/svg.latex?0%20%5Cleq%20x%20%5Cleq%20l%280%29),
 
 - ![a(0, x) = a_0(x)](http://latex.codecogs.com/svg.latex?a%280%2C%20x%29%20%3D%20a_0%28x%29)
 for some function ![a_0(x)](http://latex.codecogs.com/svg.latex?a_0%28x%29)
