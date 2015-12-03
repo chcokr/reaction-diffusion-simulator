@@ -5,8 +5,6 @@ This project contains tools that help you simulate a [reaction-diffusion
 system](https://en.wikipedia.org/wiki/Reaction–diffusion_system) over a growing
 spatial domain.
 
-**Note:** We've tested this project only on MATLAB R2015b on OS X Yosemite.
-
 ## Mathematical formulation of the problem
 
 Given a spatial domain growth function
@@ -52,3 +50,28 @@ at ![x = 0](http://latex.codecogs.com/svg.latex?x%20%3D%200)
 - ![a_x = h_x = 0](http://latex.codecogs.com/svg.latex?a_x%20%3D%20h_x%20%3D%200)
 at ![x = l(t)](http://latex.codecogs.com/svg.latex?x%20%3D%20l%28t%29)
 
+## Mathematical rigor
+
+This project implements a mathematically rigorous solver for the aforementioned
+system of PDEs.
+Since the spatial domain of this PDE system keeps growing, a theoretically
+sound treatment of these PDEs requires a mathematical trick underneath.
+For more information, please see [the dedicated documentation](./math.md).
+
+## How to use this software
+
+### Step 0: Setup
+
+**Important note:** We've tested this project only on MATLAB R2015b on OS X
+Yosemite.
+Everything from here on assumes you're following on the same setup.
+
+Alright, of course the very first thing you have to do is downloading this
+project.
+If you know what `git clone` is, do it.
+If you don't, look for a `Download ZIP` button somewhere on this page (use
+`cmd+F`) - click on it and unzip the downloaded file.
+
+Now open up MATLAB.
+Click on this icon:
+<img width="534" alt="screen shot 2015-12-03 at 6 07 45 am" src="https://cloud.githubusercontent.com/assets/3670967/11559096/75543d3a-9984-11e5-9f92-b22e59c9adff.png">
