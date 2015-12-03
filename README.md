@@ -117,16 +117,14 @@ for precision.
 So always try to strike a mental balance between how often you use `preview` and
 how often you use `refine`.
 
-#### Caching
-
-Another thing about `refine`, in comparison to `preview`, is that
+**Caching:** Another thing about `refine`, in comparison to `preview`, is that
 the results of `refine` given the current configuration in `src/settings` are
 ***cached***.
 Since the `refine` command is slow, it would get really annoying if you have to
 wait a couple of minutes every time, right?
 
 Whenever the content of any file in the `settings` directory changes, `refine`
-will start a fresh computation.
+will start a fresh computation and not read from the cache.
 
 ### [step 3] `animate`
 
