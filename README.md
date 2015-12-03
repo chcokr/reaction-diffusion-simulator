@@ -126,6 +126,19 @@ wait a couple of minutes every time, right?
 Whenever the content of any file in the `settings` directory changes, `refine`
 will start a fresh computation and not read from the cache.
 
+In contrast, `preview` doesn't cache.
+It runs so fast that there is no point caching the results.
+
+Enough about caching...
+So say you look at the resulting 3D figures and you like them.
+You're pretty confident that your current configuration in `settings` is good.
+But what if you want an animated visualization of how
+![a](http://latex.codecogs.com/svg.latex?a)
+and
+![h](http://latex.codecogs.com/svg.latex?h)
+diffuse across the spatial domain over time?
+That's where the next command comes in: `animate`.
+
 ### [step 3] `animate`
 
 ### [extra] Multi-parameter trials
