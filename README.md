@@ -11,8 +11,14 @@ spatial domain.
 
 Given a spatial domain growth function
 ![l(t) = l_0 + vt](http://latex.codecogs.com/svg.latex?l%28t%29%20%3D%20l_0%20&plus;%20vt),
-solve the following system of PDEs over the time domain
-![0 \leq t \leq T](http://latex.codecogs.com/svg.latex?0%20%5Cleq%20t%20%5Cleq%20T).
+solve the following system of PDEs for
+![a(t,x)](http://latex.codecogs.com/svg.latex?a%28t%2Cx%29)
+and
+![h(t,x)](http://latex.codecogs.com/svg.latex?h%28t%2Cx%29)
+over the time domain
+![0 \leq t \leq T](http://latex.codecogs.com/svg.latex?0%20%5Cleq%20t%20%5Cleq%20T)
+and over the spatial domain
+![x\in \{0\leq x \leq l(t) \ | \ 0 \leq t \leq T\}](http://latex.codecogs.com/svg.latex?x%5Cin%20%5C%7B0%5Cleq%20x%20%5Cleq%20l%28t%29%20%5C%20%7C%20%5C%200%20%5Cleq%20t%20%5Cleq%20T%5C%7D).
 
 ### PDEs
 
