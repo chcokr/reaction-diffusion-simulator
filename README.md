@@ -182,3 +182,25 @@ time_max.m | ![T](http://latex.codecogs.com/svg.latex?T)
 
 So whatever you want to customize in the mathematical formulation, look up the
 corresponding file, go there and read the well-documented comments in the file.
+
+### A note on units
+
+As you go through the comments in each file in `src/settings` (and also as you
+go through the 3D figures, etc.), you'll notice that very specific physical
+units (e.g. micrometers, seconds) are being used.
+
+Why did we choose to use such concrete units, when the mathematical formulation
+doesn't specify any units?
+According to our experience, it minimizes confusion down the line that could be
+caused by unit-unaware parameter choices.
+By requiring the use of certain units upfront, the room for error across
+parameter choices and visualization is kept small.
+
+The following are the official units of choice across this project.
+
+- The unit of length is micrometers.
+- The unit of time is seconds (although the visualizations prefer hours).
+- The unit of concentration is an imaginary unit called `co`.
+We considered using something like molarity, but we weren't too sure about a
+good choice across different situations.
+So, `1 co` is whatever concentration you want it to mean!
