@@ -157,6 +157,18 @@ directory of `src`.
 Go there and find it!
 The file should be marked with a timestamp.
 
-### [extra] Multi-parameter trials
+## Settings
 
-TODO
+The whole point of this project is to allow you as much freedom as possible
+within the aforementioned mathematical formulation.
+So let's learn about how to customize the files in `src/settings` so you can
+explore around.
+
+`src/settings` is best understood if you map each file to something in the
+mathematical formulation.
+Here is the mapping:
+
+File name | Corresponding math
+---- | ----
+act_eq_diffu.m | ![D_a](http://latex.codecogs.com/svg.latex?D_a)
+
