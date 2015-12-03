@@ -46,7 +46,7 @@ function animate()
     axes = gca; % `gca` returns the current axes handle.
     axes.Color = 'none'; % We don't want any color on the back pane.
     axes.XColor = 'none'; % We don't want the x-axis to appear.
-    axes.YLabel.String = 'Distance from the open end (micro-m)';
+    axes.YLabel.String = 'Distance from x=0 (micro-m)';
     axes.YDir = 'reverse'; % Since the label is 'distance from the *open end*,
                            % we want 0 to be at the top of the Y-axis.
     [act_eq, inh_eq, growth_eq] = get_eq_latex();
