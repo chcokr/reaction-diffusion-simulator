@@ -60,7 +60,7 @@ For more information, please see [the dedicated documentation](./math.md).
 
 ## How to use this software
 
-### Step 0: Setup
+### [Step 0] Setup
 
 **Important note:** We've tested this project only on MATLAB R2015b on OS X
 Yosemite.
@@ -75,3 +75,7 @@ If you don't, look for a `Download ZIP` button somewhere on this page (use
 Now open up MATLAB.
 Click on this icon:
 <img width="534" alt="screen shot 2015-12-03 at 6 07 45 am" src="https://cloud.githubusercontent.com/assets/3670967/11559096/75543d3a-9984-11e5-9f92-b22e59c9adff.png">
+Navigate to the cloned/unzipped folder you downloaded.
+There should be a directory called `src`.
+Go inside `src`.
+There, click `Open` in the bottom right corner of the window.
