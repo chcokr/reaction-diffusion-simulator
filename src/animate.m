@@ -52,7 +52,7 @@ function animate()
     [act_eq, inh_eq, growth_eq] = get_eq_latex();
     fig_title = title({
       [
-        'Activator (left) and inhibitor (right) concentrations at', ...
+        '$a(x,t)$ (left) and $h(x,t)$ (right) at $t=$', ...
         sprintf(' %.1f hrs\n', cur_time / 60 / 60)
       ]
       [
