@@ -5,7 +5,7 @@ This project contains tools that help you simulate a [reaction-diffusion
 system](https://en.wikipedia.org/wiki/Reaction–diffusion_system) over a growing
 spatial domain.
 
-**Note:** I've tested this project only on MATLAB R2015b on OS X Yosemite.
+**Note:** We've tested this project only on MATLAB R2015b on OS X Yosemite.
 
 ## Mathematical formulation of the problem
 
