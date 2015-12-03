@@ -14,7 +14,7 @@ function plot3d(sol, t_mesh_secs, x_mesh, title_text)
     strjoin({act_eq; inh_eq}, '\\ \\ \\ \\ \\ \\ ')
   });
   set(fig_title, 'Interpreter', 'Latex');
-  xlabel('Distance from the open end (micro-m)');
+  xlabel('Distance from x=0 (micro-m)');
   ylabel('Time (hours)');
   zlabel('Concentration (whatever unit)');
   view([0 90]); % Look at the 3D plot from atop (i.e. from z=infinity)

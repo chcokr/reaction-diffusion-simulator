@@ -51,13 +51,11 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cacheless( ...
 
     % Popov bondary conditions
 
-    % Reminder: "LEFT" IS THE OPEN END.
-
-    % At the closed end, enforce "No flux" (da/dx = dh/dx = 0).
+    % At x=l(t), enforce "No flux" (da/dx = dh/dx = 0).
     pr = [0; 0];
     qr = [1; 1];
 
-    % At the open end, enforce "No flux" (da/dx = dh/dx = 0).
+    % At x=0, enforce "No flux" (da/dx = dh/dx = 0).
     pl = [0; 0];
     ql = [1; 1];
 
