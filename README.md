@@ -1,7 +1,8 @@
 This project belongs to Duke University's [Benfey
 Laboratory](http://sites.duke.edu/benfey/).
 
-This project contains tools that help you simulate a [reaction-diffusion
+This project contains tools that help you simulate a [two-component
+reaction-diffusion
 system](https://en.wikipedia.org/wiki/Reaction–diffusion_system) over a growing
 spatial domain.
 
