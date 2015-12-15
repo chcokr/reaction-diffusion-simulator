@@ -64,7 +64,7 @@ For more information, please see [the dedicated documentation](./math.md).
 ### [step 0] Setup
 
 **Important note:** We've tested this project only on MATLAB R2015b on OS X
-Yosemite.
+El Capitan.
 Everything from here on assumes you're following on the same setup.
 
 Alright, of course the very first thing you have to do is downloading this
