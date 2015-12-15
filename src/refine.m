@@ -1,4 +1,4 @@
-function preview()
+function refine()
 
   addpath('./lib');
 
