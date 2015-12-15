@@ -123,8 +123,12 @@ the results of `refine` given the current configuration in `src/settings` are
 Since the `refine` command is slow, it would get really annoying if you have to
 wait a couple of minutes every time, right?
 
-Whenever the content of any file in the `settings` directory changes, `refine`
-will start a fresh computation and not read from the cache.
+Whenever it is detected that the content of any file in the `settings` directory
+has changed, `refine` will start a fresh computation and not read from the
+cache.
+Otherwise, it will try to read from the cache.
+This means that, when you run `refine` twice in a row without changing a thing
+in `settings`, the second run will be much faster.
 
 In contrast, `preview` doesn't cache.
 It runs so fast that there is no point caching the results.
