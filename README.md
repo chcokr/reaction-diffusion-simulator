@@ -78,8 +78,7 @@ Click on this icon:
 <img width="534" alt="screen shot 2015-12-03 at 6 07 45 am" src="https://cloud.githubusercontent.com/assets/3670967/11559096/75543d3a-9984-11e5-9f92-b22e59c9adff.png">
 Navigate to the cloned/unzipped folder you downloaded.
 There should be a directory called `src`.
-Go inside `src`.
-Once you're there, click `Open` in the bottom right corner of the window.
+Open up `src`.
 
 You're ready to start generating some figures!
 
