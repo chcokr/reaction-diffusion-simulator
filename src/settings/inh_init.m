@@ -11,7 +11,7 @@
 
 function rtn = inh_init(x)
 
-  % No inhibitor at all in the beginning.
-  rtn = 0; % co
+  % 1 co everywhere in the beginning.
+  rtn = 1; % co
 
 end

@@ -11,16 +11,7 @@
 
 function rtn = act_init(x)
 
-  if x < 50 % micrometers
-
-    % For all spots x<50, there is an initial activator concentration of 1 co.
-    rtn = 1; % co
-
-  else
-
-    % Everywhere else, there is none.
-    rtn = 0; % co
-
-  end
+  % 1 co everywhere in the beginning.
+  rtn = 1; % co
 
 end
