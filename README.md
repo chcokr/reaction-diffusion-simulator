@@ -161,6 +161,20 @@ directory of `src`.
 Go there and find it!
 The file should be marked with a timestamp.
 
+### [step 4] Oh no, I want to go back to a previous setting!
+
+What if, after all the fun of steps 1-3, you want to go back to a setting you
+were working with an hour ago and no longer have in `src/settings`?
+In this case, the directory `history` in the project root is your friend.
+Every time you run `preview` or `refine`, the resulting 3D plots get stored in
+`history`.
+Try it yourself - run `preview` and `refine` a few times, and then go to
+`history`.
+There you'll see file names with timestamps and a flag indicating whether the
+figure is describing activators or inhibitors.
+Open the figure up in MATLAB and check out the figure title to recall the
+settings you used to use.
+
 ## Settings
 
 The whole point of this project is to allow you as much freedom as possible
