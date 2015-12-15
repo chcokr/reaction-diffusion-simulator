@@ -1,8 +1,8 @@
-function plot3d(sol, t_mesh_secs, x_mesh, title_text)
+function fig = plot3d(sol, t_mesh_secs, x_mesh, title_text)
 
   [act_eq, inh_eq, growth_eq] = get_eq_latex();
 
-  figure;
+  fig = figure;
   t_mesh_hours = t_mesh_secs / 60 / 60; % y-axis unit is hours, not seconds
   surf(x_mesh, t_mesh_hours, sol, ...
     'EdgeColor', 'none'); % Turn off the meshes on the graph.
