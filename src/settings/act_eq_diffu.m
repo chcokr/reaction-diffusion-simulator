@@ -6,6 +6,6 @@
 
 function rtn = act_eq_diffu()
 
-  rtn = 1; % micrometers squared per second
+  rtn = 6; % micrometers squared per second
 
 end

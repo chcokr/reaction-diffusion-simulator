@@ -10,6 +10,6 @@
 
 function rtn = inh_eq_rest(a, h)
 
-  rtn = 0.0001 * a ^ 2 - 0.00025 * h;
+  rtn = 0.0006 * a ^ 2 - 0.0015 * h;
 
 end

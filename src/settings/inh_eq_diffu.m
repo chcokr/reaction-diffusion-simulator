@@ -6,6 +6,6 @@
 
 function rtn = inh_eq_diffu()
 
-  rtn = 200; % micrometers squared per second
+  rtn = 1200; % micrometers squared per second
 
 end
