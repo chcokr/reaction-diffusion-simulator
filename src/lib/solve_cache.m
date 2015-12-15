@@ -32,6 +32,10 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cache( ...
     num2str(y_step)
   }, '_');
 
+  if exist('../cache', 'dir') ~= 7
+    mkdir('../cache');
+  end
+  
   filename_with_path_and_ext = strcat('../cache/', filename, '.mat');
   
   if exist(filename_with_path_and_ext, 'file') == 2
