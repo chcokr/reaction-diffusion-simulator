@@ -149,8 +149,10 @@ In the MATLAB Command Window, type `animate`.
 This command will read in the current solutions from the cache, and will start
 generating a movie.
 You can watch the frames being generated on the go.
-Also, in the Command Window, there will be a message telling you how many more
-frames need to be generated.
+
+Pay attention to the Command Window while the animation is being generated.
+It will tell you where the movie is being saved, and how many more frames need
+to be generated.
 
 As you can sense, `animate` is a ***really slow*** command.
 So only run it when you're absolutely confident about the results of `refine` -
