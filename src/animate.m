@@ -8,8 +8,8 @@ function animate()
   [a_sol, h_sol, t_mesh_secs, x_mesh] = ...
     solve_cache(t_size_per_mesh, y_size_per_mesh);
 
-  center_figure(500, 700); % Open up a figure of width 500, height 700, and
-                           % center it at the middle of the screen.
+  center_figure(500, 700, 0); % Open up a figure of width 500, height 700, and
+                              % center it at the middle of the screen.
 
   fig = gcf;
 
