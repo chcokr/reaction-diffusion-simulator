@@ -38,14 +38,21 @@ function animate()
   % The inside of the following `while` loop produces each frame of the
   % animation.
   prev_msg_len = 0; % This helps delete the previous line of console output.
-  for t_index = 1 : size(t_mesh_secs, 2)
+  itr_index = 1;
+  
+  % If we draw at every t_mesh, there are way too many frames to draw, so we
+  % only draw every 10th frame.
+  t_indices_to_paint = 1:10:size(t_mesh_secs, 2);
+  
+  for t_index = t_indices_to_paint
     cur_time = t_mesh_secs(t_index);
 
     % Delete the previous line of console output, and write a new one.
     fprintf(repmat('\b', 1, prev_msg_len));
     prev_msg_len = fprintf('Movie: creating frame %d of %d \n', ...
-      t_index, ...
-      size(t_mesh_secs, 2));
+      itr_index, ...
+      length(t_indices_to_paint));
+    itr_index = itr_index + 1;
 
     % If the user is watching any other figure window, make sure this new frame
     % gets drawn to this desired figure.
