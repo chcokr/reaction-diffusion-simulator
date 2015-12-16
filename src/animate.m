@@ -27,7 +27,7 @@ function animate()
       strcat('movie-', datestr(datetime('now'), 'mm-dd-HH:MM:SS'), '.avi') ...
     );
   video = VideoWriter(movie_save_path);
-  video.FrameRate = 2;
+  video.FrameRate = 10;
   open(video);
   fprintf('\n');
   display(['Movie is being saved at ', movie_save_path]);
@@ -41,8 +41,8 @@ function animate()
   itr_index = 1;
   
   % If we draw at every t_mesh, there are way too many frames to draw, so we
-  % only draw every 10th frame.
-  t_indices_to_paint = 1:10:size(t_mesh_secs, 2);
+  % only draw every 20th frame.
+  t_indices_to_paint = 1:20:size(t_mesh_secs, 2);
   
   for t_index = t_indices_to_paint
     cur_time = t_mesh_secs(t_index);
