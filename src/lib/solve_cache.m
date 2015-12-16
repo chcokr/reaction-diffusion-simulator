@@ -39,6 +39,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cache( ...
   filename_with_path_and_ext = strcat('../cache/', filename, '.mat');
   
   if exist(filename_with_path_and_ext, 'file') == 2
+    display('Solution exists in cache, loading from cache...');
     load(filename_with_path_and_ext)
     return;
   end
