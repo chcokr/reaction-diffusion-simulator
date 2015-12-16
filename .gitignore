@@ -1,5 +1,6 @@
 .DS_Store
 .idea/
+/animate_results
 /cache
 /history
 /multiparam_results*
