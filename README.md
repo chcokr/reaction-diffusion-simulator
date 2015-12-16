@@ -156,11 +156,6 @@ As you can sense, `animate` is a ***really slow*** command.
 So only run it when you're absolutely confident about the results of `refine` -
 don't waste your time :)
 
-When the whole generation is done, a movie file will be saved to the parent
-directory of `src`.
-Go there and find it!
-The file should be marked with a timestamp.
-
 ### [step 4] Oh no, I want to go back to a previous setting!
 
 What if, after all the fun of steps 1-3, you want to go back to a setting you
