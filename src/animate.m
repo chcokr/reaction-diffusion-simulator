@@ -20,6 +20,20 @@ function animate()
   min_act_concen = min(a_sol(:));
   max_inh_concen = max(h_sol(:));
   min_inh_concen = min(h_sol(:));
+  
+  movie_save_path = ...
+    fullfile( ...
+      fileparts(fileparts(mfilename('fullpath'))), ...
+      strcat('movie-', datestr(datetime('now'), 'mm-dd-HH:MM:SS'), '.avi') ...
+    );
+  video = VideoWriter(movie_save_path);
+  video.FrameRate = 2;
+  open(video);
+  fprintf('\n');
+  display(['Movie is being saved at ', movie_save_path]);
+  display(['If you quit in the middle, ', ...
+    'you can find the movie generated so far there.']);
+  fprintf('\n');
 
   % The inside of the following `while` loop produces each frame of the
   % animation.
@@ -84,19 +98,13 @@ function animate()
       root_width + gap_between_roots);
 
     % Queue this frame so it can be played later.
-    movie_frames(t_index) = getframe(fig);
+    writeVideo(video, getframe(fig));
 
   end
 
-  movie_save_path = ...
-    fullfile( ...
-      fileparts(fileparts(mfilename('fullpath'))), ...
-      strcat('movie-', datestr(datetime('now'), 'mm-dd-HH:MM:SS'), '.avi') ...
-    );
-  fprintf('Saving the movie at %s \n', movie_save_path);
+  close(v);
+  
   fprintf('Done! \n');
-  movie2avi(movie_frames, movie_save_path, ...
-    'fps', 2);
 
 end
 
