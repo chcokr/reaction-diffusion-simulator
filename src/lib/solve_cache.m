@@ -2,6 +2,8 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cache( ...
   t_step, ...
   y_step)
 
+  addpath('./settings');
+
   solver_id = 'e09vx';
   
   settings_files = dir('./settings');
