@@ -117,7 +117,7 @@ function animate()
 
   end
 
-  close(v);
+  close(video);
   
   fprintf('Done! \n');
 
