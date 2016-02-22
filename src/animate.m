@@ -20,7 +20,7 @@ function animate()
   min_act_concen = min(a_sol(:));
   max_inh_concen = max(h_sol(:));
   min_inh_concen = min(h_sol(:));
-  
+
   animate_results_dir_path = ...
     fullfile( ...
       fileparts(fileparts(mfilename('fullpath'))), ...
@@ -47,11 +47,11 @@ function animate()
   % animation.
   prev_msg_len = 0; % This helps delete the previous line of console output.
   itr_index = 1;
-  
+
   % If we draw at every t_mesh, there are way too many frames to draw, so we
   % only draw every 20th frame.
   t_indices_to_paint = 1:20:size(t_mesh_secs, 2);
-  
+
   for t_index = t_indices_to_paint
     cur_time = t_mesh_secs(t_index);
 
@@ -118,7 +118,7 @@ function animate()
   end
 
   close(video);
-  
+
   fprintf('Done! \n');
 
 end
@@ -164,10 +164,22 @@ function draw_concens_at_fixed_time( ...
 
 end
 
-% Computes the color that is linearly `how_far_from_blue` away from the color
-% [0, 0, 1] (blue) toward the color [1, 1, 0] (yellow).
 function rtn = gradient_from_blue_to_yellow(how_far_from_blue)
 
-  rtn = [how_far_from_blue, how_far_from_blue, 1 - how_far_from_blue];
+  fast_growth_toward_yellow = 0.2167 * log(how_far_from_blue + 0.01) + 0.9979;
+
+  if fast_growth_toward_yellow < 0
+    force_to_be_within_0_to_1_range = 0;
+  elseif fast_growth_toward_yellow > 1
+    force_to_be_within_0_to_1_range = 1;
+  else
+    force_to_be_within_0_to_1_range = fast_growth_toward_yellow;
+  end
+
+  rtn = [ ...
+    force_to_be_within_0_to_1_range, ...
+    force_to_be_within_0_to_1_range, ...
+    1 - force_to_be_within_0_to_1_range ...
+  ];
 
 end
