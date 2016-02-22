@@ -4,7 +4,7 @@
 %
 % Unit of return value must be micrometers squared per second.
 
-function rtn = inh_eq_diffu()
+function rtn = param_D_h()
 
   rtn = 1200; % micrometers squared per second
 

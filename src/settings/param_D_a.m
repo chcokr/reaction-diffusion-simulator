@@ -4,7 +4,7 @@
 %
 % Unit of return value must be micrometers squared per second.
 
-function rtn = act_eq_diffu()
+function rtn = param_D_a()
 
   rtn = 6; % micrometers squared per second
 

@@ -4,7 +4,7 @@
 %
 % Unit of return value must be seconds.
 
-function rtn = time_max()
+function rtn = param_T()
 
   % Simulate over 24 hours.
   rtn = 60 * 60 * 24; % seconds

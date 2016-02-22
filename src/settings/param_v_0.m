@@ -4,7 +4,7 @@
 %
 % Unit of return value must be micrometers per second.
 
-function rtn = growth_velocity()
+function rtn = param_v_0()
 
   rtn = 0.11574; % micrometers per second (this is 1cm/day).
 

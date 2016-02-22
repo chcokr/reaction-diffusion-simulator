@@ -5,7 +5,7 @@
 %
 % Unit of return value must be micrometers.
 
-function rtn = init_length()
+function rtn = param_l_0()
 
   rtn = 500; % micrometers
 

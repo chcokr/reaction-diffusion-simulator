@@ -4,12 +4,12 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cacheless( ...
 
   addpath('./settings');
 
-  t_mesh = 0 : t_size_per_mesh : time_max();
+  t_mesh = 0 : t_size_per_mesh : param_T();
 
   y_mesh = 0 : y_size_per_mesh : 1;
 
-  growth_vel = growth_velocity();
-  init_len = init_length();
+  growth_vel = param_v_0();
+  init_len = param_l_0();
 
   function [c, f, s] = pdepe_eq_fn(y, t, col_of_tilde, col_of_tilde_first_deriv)
 
@@ -23,8 +23,8 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cacheless( ...
 
     root_len = init_len + growth_vel * t;
 
-    f_a = act_eq_diffu() * a_tilde_first_deriv / (root_len ^ 2);
-    f_h = inh_eq_diffu() * h_tilde_first_deriv / (root_len ^ 2);
+    f_a = param_D_a() * a_tilde_first_deriv / (root_len ^ 2);
+    f_h = param_D_h() * h_tilde_first_deriv / (root_len ^ 2);
 
     s_a = ...
       act_eq_rest(a_tilde, h_tilde) ...
@@ -79,7 +79,7 @@ function [a_sol, h_sol, t_mesh, x_mesh] = solve_cacheless( ...
   t_mesh_count = size(t_mesh, 2);
 
   x_mesh_count = 1000;
-  growth_max = init_len + growth_vel * time_max();
+  growth_max = init_len + growth_vel * param_T();
   x_mesh_size_per_mesh = growth_max / x_mesh_count;
   x_mesh = linspace(0, growth_max, x_mesh_count);
 

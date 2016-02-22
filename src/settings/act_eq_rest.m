@@ -1,7 +1,7 @@
 % Inside this function, you can specify the rest of the activator equation.
 % Whatever you define here will result in forming the following differential
 % equation:
-% da/dt = act_eq_rest(a, h) + act_eq_diffu() * d^2 a / dx^2
+% da/dt = act_eq_rest(a, h) + param_D_a() * d^2 a / dx^2
 %
 % The return value must be a constant number.
 %
@@ -10,6 +10,6 @@
 
 function rtn = act_eq_rest(a, h)
 
-  rtn = 0.12 * a ^ 2 / h - 0.0012 * a + 0.018;
+  rtn = param_rho_a() * a ^ 2 / h - param_mu() * a + param_c();
 
 end
